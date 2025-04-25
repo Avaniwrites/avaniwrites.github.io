@@ -3,46 +3,251 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avani's Website</title>
+    <title>Academic Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --main-color: #5d4037;
+            --highlight-color: #8D6E63;
+            --accent-color: #a05c42;
+            --light-accent: #f0e6dc;
+            --bg-color: #f5e6d3;
+            --card-bg: rgba(253, 245, 230, 0.9);
+            --text-color: #3d332c;
+            --header-bg: #543b31;
+        }
+        
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f5f5f5;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-        }
-        .container {
-            background-color: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-        }
-        h1 {
-            color: #4a4a4a;
-            margin-bottom: 1rem;
-            font-size: 2.5rem;
-        }
-        p {
-            color: #7a7a7a;
-            font-size: 1.2rem;
+            font-family: 'Cormorant Garamond', serif;
+            background: linear-gradient(135deg, var(--bg-color) 0%, #e6d5c3 100%);
+            min-height: 100vh;
+            color: var(--text-color);
+            font-size: 18px;
             line-height: 1.6;
         }
+        
+        .header {
+            background: linear-gradient(to right, var(--header-bg), #7d5e4e);
+            color: white;
+            padding: 2.5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('/api/placeholder/1200/400');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.2;
+            z-index: 0;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header-text {
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--main-color);
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+            border-bottom: 2px solid var(--light-accent);
+            padding-bottom: 0.5rem;
+            letter-spacing: 0.5px;
+        }
+        
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 1px solid rgba(210, 190, 180, 0.2);
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+        
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(155, 132, 122, 0.1);
+        }
+        
+        .card-content {
+            padding: 2rem;
+        }
+        
         .highlight {
-            color: #ff6b6b;
-            font-weight: bold;
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+        
+        .title-highlight {
+            color: var(--highlight-color);
+            font-weight: 600;
+        }
+        
+        .profile-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            object-fit: cover;
+            background-color: #e8d8c3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #a1887f;
+            overflow: hidden;
+            font-size: 1rem;
+            margin: 0 auto 1.5rem;
+        }
+        
+        footer {
+            background: linear-gradient(to right, var(--header-bg), #7d5e4e);
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .footer-text {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+        
+        .footer-links a {
+            color: var(--light-accent);
+            margin-left: 1rem;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        
+        .footer-links a:hover {
+            opacity: 0.8;
+        }
+        
+        /* For paragraph spacing */
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        /* Increase line height for better readability */
+        .card-content p {
+            line-height: 1.8;
+        }
+        
+        .intro-text {
+            font-size: 1.4rem;
+            font-style: italic;
+            color: var(--highlight-color);
+            margin-bottom: 1.5rem;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Hi, I am <span class="highlight">Avani</span></h1>
-        <p>Welcome to my personal website!</p>
+    <header class="header">
+        <div class="header-content container mx-auto px-4 text-center">
+            <h1 class="text-4xl font-bold mb-4 header-text">Avani Sharma</h1>
+            <p class="text-xl opacity-90">Educator, Researcher, and Lifelong Learner</p>
+        </div>
+    </header>
+    
+    <div class="container mx-auto px-4 py-12">
+        <div class="profile-photo" id="photo-placeholder">
+            <div class="text-center p-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-16 w-16 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+                <p>Add Photo</p>
+            </div>
+        </div>
+        
+        <div class="max-w-4xl mx-auto">
+            <!-- Introduction Section -->
+            <div class="card">
+                <div class="card-content">
+                    <h2 class="section-title">Introduction</h2>
+                    <p class="intro-text">Hey!</p>
+                    <p>As a <span class="highlight">former educator</span> with a strong foundation in <span class="highlight">interdisciplinary learning in Zoology and M.A. in English</span>, I've developed a passion for exploring the intersections of science, language, and education. With a year of formal teaching experience and three years of working as a freelance tutor, I've honed my skills in creating engaging learning experiences and staying updated on innovative methodologies. In addition to this, I have worked on a <span class="highlight">Biodiversity Survey</span> of different panchayats conducted by the Department of Rural Development, HP, in Community Development Block Nahan, District Sirmour.</p>
+                </div>
+            </div>
+            
+            <!-- Research Section -->
+            <div class="card">
+                <div class="card-content">
+                    <h2 class="section-title">Research Experience</h2>
+                    <p>My research endeavors, including authoring two research papers, <span class="title-highlight">"Women's Sexuality and Identity Crisis: between Past and Present: Reading 'My Story' by Kamala Das"</span> and <span class="title-highlight">"Dalit among Dalits: A Study of Joothan and The Prisons We Broke,"</span> have further deepened my interest in academic inquiry. Now, as I transition into a research-focused path, I'm eager to pursue a <span class="highlight">PhD</span>, leveraging my teaching expertise and research background to contribute meaningfully to the field.</p>
+                </div>
+            </div>
+            
+            <!-- Academic Interests Section -->
+            <div class="card">
+                <div class="card-content">
+                    <h2 class="section-title">Academic Interests</h2>
+                    <p>I am an <span class="highlight">enthusiastic researcher</span> and write articles and papers to offer insights on social problems. As a student of Humanities, I write for the betterment of society in my free time. I also have a passion for <span class="highlight">theatre</span>, often attending plays and even preparing students for their own theatrical performances.</p>
+                    <p>My academic interests lie in the <span class="title-highlight">Romantic era, Victorian literature, postcolonial studies, and feminist studies</span>, with a particular focus on <span class="title-highlight">Indian literature</span>. I'm an avid reader, with a deep appreciation for the works of authors like <span class="title-highlight">Harper Lee, Khaled Hosseini, Albert Camus, and Sylvia Plath</span>. Their thought-provoking writings have not only broadened my perspectives but also inspired me to explore the complexities of human experience and the nuances of social justice through my own writing.</p>
+                </div>
+            </div>
+            
+            <!-- Creative Pursuits Section -->
+            <div class="card">
+                <div class="card-content">
+                    <h2 class="section-title">Creative Pursuits</h2>
+                    <p>Beyond academia, I find inspiration in creative pursuits like <span class="highlight">reading books, painting, writing, and poetry</span>, and I enjoy discussing detailed analyses of books and movies with my peers.</p>
+                </div>
+            </div>
+            
+            <!-- Personal Background Section -->
+            <div class="card">
+                <div class="card-content">
+                    <h2 class="section-title">Personal Background</h2>
+                    <p>Growing up in the <span class="highlight">Himalayas</span>, I've developed a deep love for nature, which I nurture through <span class="highlight">gardening, travel, and spending time outdoors</span>. I am a keen observer and thinker, often trying to connect the dots and understand things on a deeper level. I have a habit of questioning things and seeking their answers on my own through reading, interacting, and discussions.</p>
+                    <p>Apart from this, I try to <span class="highlight">volunteer</span> for the underprivileged people of my village, offering free lessons and counseling.</p>
+                </div>
+            </div>
+            
+            <!-- Note Section -->
+            <div class="card">
+                <div class="card-content">
+                    <h2 class="section-title">Note</h2>
+                    <p>I seek a <span class="highlight">funded PhD opportunity</span>, and I'm excited to merge my academic rigor with my love for research and creative expression.</p>
+                </div>
+            </div>
+        </div>
     </div>
+    
+    <footer>
+        <div class="container mx-auto px-4">
+            <div class="footer-content">
+                <div class="footer-text">
+                    &copy; 2025 Academic Portfolio
+                </div>
+                <div class="footer-links">
+                    <a href="#">Contact</a>
+                    <a href="#">CV</a>
+                    <a href="#">Publications</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
